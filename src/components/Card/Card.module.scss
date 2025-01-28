@@ -1,0 +1,15 @@
+.card {
+  width: 300px;
+  height: 500px;
+  background-color: var(--selBack);
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  &__image {
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: inherit;
+  }
+}
