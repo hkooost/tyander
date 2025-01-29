@@ -7,14 +7,14 @@ const BASE_API: string = 'https://nekos.best/api/v2/waifu?amount=3';
 const BASE_DATA: string = 'https://fakerapi.it/api/v2/persons?_quantity=3&_gender=female&_birthday_start=1999-01-01&_birthday_end=2003-01-01';
 
 interface User {
-  address: any;
   id: number;
   firstname: string;
-  country: string;
-  city: string;
+  address: {
+    country: string;
+    city: string;
+  };
 }
 interface Image {
-  id: number;
   url: string;
 }
 interface ImageResponse {
