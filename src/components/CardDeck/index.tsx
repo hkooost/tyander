@@ -31,7 +31,7 @@ interface CombinedData {
   imageUrl: string;
 }
 
-function CarDeck() {
+function CardDeck() {
   const [combinedData, setCombinedData] = useState<CombinedData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -79,4 +79,4 @@ function CarDeck() {
   );
 }
 
-export default CarDeck;
+export default CardDeck;
