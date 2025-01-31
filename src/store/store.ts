@@ -54,7 +54,7 @@ class CardDeckStore {
       const images = imageRes.data.results;
 
       const combined: CombinedData[] = users.map((user, index) => ({
-        id: user.id,
+        id: Date.now() + index,
         firstname: user.firstname,
         country: user.address.country,
         city: user.address.city,
@@ -62,7 +62,7 @@ class CardDeckStore {
       }));
 
       runInAction(() => {
-        this.combinedData = combined;
+        this.combinedData.unshift(...combined);
         this.loading = false;
       });
     } catch (error) {
@@ -79,6 +79,9 @@ class CardDeckStore {
         this.savedCards.push(cardToAdd);
         this.combinedData = this.combinedData.filter(user => user.id !== id);
       });
+      if (this.combinedData.length <= 2) {
+        this.fetchData();
+      }
     }
   };
   removeCard = (id: number) => {
@@ -87,6 +90,9 @@ class CardDeckStore {
       runInAction(() => {
         this.combinedData = this.combinedData.filter(user => user.id !== id);
       });
+      if (this.combinedData.length <= 2) {
+        this.fetchData();
+      }
     }
   };
 }
