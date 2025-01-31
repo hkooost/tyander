@@ -66,7 +66,7 @@ class CardDeckStore {
       });
     } catch (error) {
       runInAction(() => {
-        this.error = 'Ошибка загрузки данных';
+        this.error = `${error}`;
         this.loading = false;
       });
     }
