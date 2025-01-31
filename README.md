@@ -7,6 +7,8 @@ Tinder-like SPA for dating and chating with anime characters
 * SASS as CSS-preprocessor
 * React as library for building a UI
   * motion for animations
+  * material-ui for icons
+* MobX for state management
 * Vite as module bundler
 * axios for HTTP requests
 * nekos.best as API for images
