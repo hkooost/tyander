@@ -3,4 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &_loader, &_error {
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
