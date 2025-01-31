@@ -11,7 +11,11 @@ function CardDeck() {
   }, []);
 
   if (cardDeckStore.loading)
-    return <div className={styles.cardDeck_loader}><CircularProgress size="48px" thickness={8} /></div>
+    return (
+      <div className={styles.cardDeck_loader}>
+        <CircularProgress size='48px' thickness={8} />
+      </div>
+    );
   if (cardDeckStore.error)
     return <div className={styles.cardDeck_error}>{cardDeckStore.error}</div>;
 

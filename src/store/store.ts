@@ -37,6 +37,7 @@ class CardDeckStore {
   combinedData: CombinedData[] = [];
   loading: boolean = true;
   error: string | null = null;
+  savedCards: CombinedData[] = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -68,6 +69,23 @@ class CardDeckStore {
       runInAction(() => {
         this.error = `${error}`;
         this.loading = false;
+      });
+    }
+  };
+  saveCard = (id: number) => {
+    const cardToAdd = this.combinedData.find(user => user.id === id);
+    if (cardToAdd) {
+      runInAction(() => {
+        this.savedCards.push(cardToAdd);
+        this.combinedData = this.combinedData.filter(user => user.id !== id);
+      });
+    }
+  };
+  removeCard = (id: number) => {
+    const cardToRemove = this.combinedData.find(user => user.id === id);
+    if (cardToRemove) {
+      runInAction(() => {
+        this.combinedData = this.combinedData.filter(user => user.id !== id);
       });
     }
   };
